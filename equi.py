@@ -1,6 +1,5 @@
 import numpy as np
 import pandas as pd
-import timeit
 #_______________________ File selection box
 filename = 'breast10D.csv' # show an "Open" dialog box and return the path to the selected file
 Cfilename ='breast10.csv'
@@ -47,18 +46,13 @@ def qreduct(C):
         for x in C-R:
              if gamma(R.union(set([x]))) > gamma(T):
                 T = R.union(set([x]))
-             if gamma(R) == gamma(T):
-                break
+             
         R = T
+        if gamma(R) == gamma(C):
+                break
     return R
 #_________________________ Main fuction
 decision=len(df.columns)#_________ defining le decision index
 D = [decision]           
 B = set([ i for i in range(1,decision)]) #__________ defining condition index
 Features= qreduct(B)
-
-
-
-
-
-
