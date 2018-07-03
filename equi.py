@@ -46,7 +46,6 @@ def qreduct(C):
         for x in C-R:
              if gamma(R.union(set([x]))) > gamma(T):
                 T = R.union(set([x]))
-             
         R = T
         if gamma(R) == gamma(C):
                 break
